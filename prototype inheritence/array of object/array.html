@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrayof object</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    function fun(){
+        this.length = arguments.length;
+
+        for(let i=0; i< arguments.length; i++)
+        {
+                this[i]=arguments[i];
+        }
+    }
+    let arr = new fun(1,2,3,4,5,6,7,8,9)
+    console.log(Object.values(arr));
+   
+   // console.log(this.length)
+
+   fun.prototype.पुश= function (value){
+       this[this.length] = value;
+       this.length++;
+       console.log(arr)
+
+   }
+//    
+// arr.पुश(0)
+fun.prototype.हटाओ=function (){
+    delete this[this.length - 1];
+    this.length--;
+    console.log(arr)
+}
+// arr.हटाओ();
+fun.prototype.chhapo = function(){
+    console.log(Object.values(this));
+}
+fun.prototype.rev = function(){
+    for(i=arr.length; i>=0;i--){
+        var bag= arr[i]
+        console.log(bag)
+    }
+}
+fun.prototype.size = function(){
+    console.log(arr.length);
+}
+arr.size()
+arr.rev()
+arr.chhapo()
+arr.हटाओ();
+arr.पुश(0)
